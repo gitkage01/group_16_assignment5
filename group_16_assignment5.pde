@@ -1,21 +1,22 @@
 //import peasy.*;
 //import peasy.org.apache.commons.math.*;
 //import peasy.org.apache.commons.math.geometry.*;
-
 Planet Mercury;
 Planet Earth;
 Planet Jupiter;
+Moon eMoon;
 
 PImage Merc;
 PImage Eart;
 PImage Jupi;
 PImage sun;
+PImage moon;
 PShape globe;
 
 float r1;
 float r2;
 float r3;
-
+float r4;
 float rotateVal1;
 
 //PeasyCam cam;
@@ -26,7 +27,7 @@ void setup() {
   noStroke();
   frameRate(30);
   //cam = new PeasyCam(this, 300);
-  
+
   sun = loadImage("sunTexture.jpg");
   globe = createShape(SPHERE, 50);
   globe.setTexture(sun);
@@ -34,16 +35,20 @@ void setup() {
   r1 = 0.05;
   r2 = 0.03;
   r3 = 0.01;
+  r4 = 0.01;
   rotateVal1 = 0.02;
   
   Mercury = new Planet();
   Earth = new Planet();
   Jupiter = new Planet();
   
+  eMoon = new Moon();
+  
   Merc = loadImage("mercuryTexture.jpg");
   Eart = loadImage("earthTexture.jpg");
   Jupi = loadImage("jupiterTexture.jpg");
-
+  moon = loadImage("moonTexture.jpg");
+  
   Mercury.xpos = 100;
   Mercury.ypos = 0;
   Mercury.radius = 15;
@@ -64,6 +69,15 @@ void setup() {
   Jupiter.rVal = r2;
   Jupiter.texture1 = Jupi;
   
+  eMoon.xpos = -100;
+  eMoon.ypos = 30;
+  eMoon.pXpos = Earth.xpos;
+  eMoon.pYpos = Earth.ypos;
+  eMoon.radius = 10;
+  eMoon.rotateVal = 0.05;
+  eMoon.rVal = r4;
+  eMoon.texture1 = moon;
+  
 }
 
 void draw() {
@@ -82,5 +96,6 @@ void draw() {
   Mercury.orbit();
   Earth.orbit();
   Jupiter.orbit();
+  eMoon.mOrbit();
   
 }
