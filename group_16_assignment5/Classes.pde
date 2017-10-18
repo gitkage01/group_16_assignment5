@@ -25,10 +25,33 @@ class Planet {
 }
 
 class Moon extends Planet {
-  float pXpos, pYpos;
+  float pXpos, pYpos, rotateVal2, rVal2;
   
   Moon() {}
   
+  void moonOrbit() {
+    
+    pushMatrix();
+    translate(width/2, height/2);
+    pushMatrix();
+    rotateZ(rotateVal);
+    translate(xpos, ypos);
+    pushMatrix();
+    rotateZ(rotateVal2);
+    translate(pXpos, pYpos);
+    rotateZ(rotateVal2);
+    globe1 = createShape(SPHERE, radius);
+    globe1.setTexture(texture1);
+    shape(globe1);
+    popMatrix();
+    popMatrix();
+    popMatrix();
+    rotateVal += rVal;
+    rotateVal2 += rVal2;
+    
+  }
+  
+/*
   void mOrbit() {
   
     pushMatrix();
@@ -47,4 +70,5 @@ class Moon extends Planet {
     rotateVal += rVal;
     
   }
+*/
 }

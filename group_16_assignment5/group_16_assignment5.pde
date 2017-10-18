@@ -35,7 +35,7 @@ void setup() {
   r1 = 0.05;
   r2 = 0.03;
   r3 = 0.01;
-  r4 = 0.01;
+  r4 = 0.03;
   rotateVal1 = 0.02;
   
   Mercury = new Planet();
@@ -69,13 +69,15 @@ void setup() {
   Jupiter.rVal = r2;
   Jupiter.texture1 = Jupi;
   
-  eMoon.xpos = -100;
-  eMoon.ypos = 30;
-  eMoon.pXpos = Earth.xpos;
-  eMoon.pYpos = Earth.ypos;
+  eMoon.xpos = Earth.xpos;
+  eMoon.ypos = Earth.ypos;
+  eMoon.pXpos = 50;
+  eMoon.pYpos = 0;
   eMoon.radius = 10;
-  eMoon.rotateVal = 0.05;
-  eMoon.rVal = r4;
+  eMoon.rotateVal = Earth.rotateVal;
+  eMoon.rotateVal2 = 0.05;
+  eMoon.rVal = r3;
+  eMoon.rVal2 = r4;
   eMoon.texture1 = moon;
   
 }
@@ -96,6 +98,6 @@ void draw() {
   Mercury.orbit();
   Earth.orbit();
   Jupiter.orbit();
-  eMoon.mOrbit();
+  eMoon.moonOrbit();
   
 }
