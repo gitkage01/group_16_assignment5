@@ -1,3 +1,25 @@
+class ironMan{
+  float crVal,crotateVal,srotateVal,srVal;
+  PShape object=loadShape("IronMan.obj");
+  
+  ironMan(){}
+  void circle(){
+    pushMatrix();
+    translate(width/2, height/2);
+    rotateX(crotateVal);
+    translate(0,400,0);
+    pushMatrix();
+    rotateX(srotateVal);
+    lights();
+    shape(object,-50,-50,100,100);
+    popMatrix();
+    popMatrix();
+    crotateVal+=crVal;
+    srotateVal+=srVal;
+
+  }
+}
+
 class Planet {
   
   float xpos, ypos, radius, rotateVal, rVal;

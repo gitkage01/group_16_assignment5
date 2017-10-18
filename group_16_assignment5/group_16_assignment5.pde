@@ -5,6 +5,7 @@ Planet Mercury;
 Planet Earth;
 Planet Jupiter;
 Moon eMoon;
+ironMan IronMan;
 
 PImage Merc;
 PImage Eart;
@@ -25,7 +26,6 @@ void setup() {
   
   size(1280, 720, P3D);
   noStroke();
-  frameRate(30);
   //cam = new PeasyCam(this, 300);
 
   sun = loadImage("sunTexture.jpg");
@@ -80,6 +80,12 @@ void setup() {
   eMoon.rVal2 = r4;
   eMoon.texture1 = moon;
   
+  IronMan=new ironMan();
+  IronMan.crVal=0.06;
+  IronMan.crotateVal=0;
+  IronMan.srotateVal=0.8;
+  IronMan.srVal=0.001;
+  
 }
 
 void draw() {
@@ -99,5 +105,6 @@ void draw() {
   Earth.orbit();
   Jupiter.orbit();
   eMoon.moonOrbit();
+  IronMan.circle();
   
 }
